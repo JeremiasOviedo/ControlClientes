@@ -16,14 +16,14 @@
 
 
         <div th:if ="${personas != null and !personas.empty}">
-            <table border = "1">
+            <table class="table">
                 <tr>
-                    <th>[[#{persona.nombre}]]</th>
-                    <th>[[#{persona.apellido}]]</th>
-                    <th>[[#{persona.email}]]</th>
-                    <th>[[#{persona.telefono}]]</th>
-                    <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.editar}]]</th>
-                    <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.eliminar}]]</th>
+                    <th scope="col">[[#{persona.nombre}]]</th>
+                    <th scope="col">[[#{persona.apellido}]]</th>
+                    <th scope="col">[[#{persona.email}]]</th>
+                    <th scope="col">[[#{persona.telefono}]]</th>
+                    <th scope="col" sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.editar}]]</th>
+                    <th scope="col" sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.eliminar}]]</th>
                 </tr>
                 <tr th:each="persona : ${personas}">
                     <td th:text="${persona.nombre}">Nombre de la persona</td>
