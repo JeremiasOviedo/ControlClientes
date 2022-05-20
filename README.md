@@ -1,7 +1,7 @@
 # ControlClientes
  Pequeño sistema de control de clientes hecho en spring boot
  </br>
-Base de datos MYSql 
+Base de datos MySQL 
 </br>
 JPA Hibernate
 </br>
