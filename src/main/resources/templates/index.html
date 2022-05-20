@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+   
+    <head th:replace="layout/plantilla :: head">
         <title>Inicio</title>
-        <meta charset="UTF-8">
     </head>
     <body>
 
@@ -14,8 +13,8 @@
         </br>
         <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{agregar}">[[#{persona.crear}]]</a>
         </br>
-        
-        
+
+
         <div th:if ="${personas != null and !personas.empty}">
             <table border = "1">
                 <tr>
@@ -27,12 +26,12 @@
                     <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.eliminar}]]</th>
                 </tr>
                 <tr th:each="persona : ${personas}">
-                <td th:text="${persona.nombre}">Nombre de la persona</td>
-                <td th:text="${persona.apellido}">Apellido de la persona</td>
-                <td th:text="${persona.email}">Email de la persona</td>
-                <td th:text="${persona.telefono}">Telefono de la persona</td>
-                <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/editar/} + ${persona.idPersona}">[[#{accion.editar}]]</a></td>
-                <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/eliminar(idPersona=${persona.idPersona})}">[[#{accion.eliminar}]]</a></td>
+                    <td th:text="${persona.nombre}">Nombre de la persona</td>
+                    <td th:text="${persona.apellido}">Apellido de la persona</td>
+                    <td th:text="${persona.email}">Email de la persona</td>
+                    <td th:text="${persona.telefono}">Telefono de la persona</td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/editar/} + ${persona.idPersona}">[[#{accion.editar}]]</a></td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/eliminar(idPersona=${persona.idPersona})}">[[#{accion.eliminar}]]</a></td>
                 </tr>
 
             </table>

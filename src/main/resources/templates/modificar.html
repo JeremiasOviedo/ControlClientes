@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:th="http://www.thymeleaf.org">
-    <head>
+    <head th:replace="layout/plantilla :: head">
         <title>[[#{persona.formulario}]]</title>
-        <meta charset="UTF-8"/>
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"></header>
-        </br>
+    </br>
         <h2>Datos de la persona</h2>
         <a th:href="@{/}"> [[#{accion.regresar}]] </a>
         </br>
