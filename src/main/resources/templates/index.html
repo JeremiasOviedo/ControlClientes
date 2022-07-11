@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-   
+
     <head th:replace="layout/plantilla :: head">
         <title>Inicio</title>
     </head>
@@ -11,34 +11,9 @@
 
         <header th:replace="layout/plantilla :: header"></header>
         </br>
-        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{agregar}">[[#{persona.crear}]]</a>
+        <section th:replace="layout/agregarCliente :: agregarCliente"></section>
         </br>
-
-
-        <div th:if ="${personas != null and !personas.empty}">
-            <table class="table">
-                <tr>
-                    <th scope="col">[[#{persona.nombre}]]</th>
-                    <th scope="col">[[#{persona.apellido}]]</th>
-                    <th scope="col">[[#{persona.email}]]</th>
-                    <th scope="col">[[#{persona.telefono}]]</th>
-                    <th scope="col" sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.editar}]]</th>
-                    <th scope="col" sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.eliminar}]]</th>
-                </tr>
-                <tr th:each="persona : ${personas}">
-                    <td th:text="${persona.nombre}">Nombre de la persona</td>
-                    <td th:text="${persona.apellido}">Apellido de la persona</td>
-                    <td th:text="${persona.email}">Email de la persona</td>
-                    <td th:text="${persona.telefono}">Telefono de la persona</td>
-                    <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/editar/} + ${persona.idPersona}">[[#{accion.editar}]]</a></td>
-                    <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/eliminar(idPersona=${persona.idPersona})}">[[#{accion.eliminar}]]</a></td>
-                </tr>
-
-            </table>
-        </div>
-        <div th:if ="${personas == null or personas.empty}">
-            [[#{persona.lista-vacia}]]
-        </div>
+        <section th:replace="layout/listadoClientes :: listadoClientes"></section>
         </br>
         <footer th:replace="layout/plantilla :: footer"></footer>
     </body>

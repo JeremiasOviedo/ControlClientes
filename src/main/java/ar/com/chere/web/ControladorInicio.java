@@ -2,6 +2,7 @@ package ar.com.chere.web;
 
 import ar.com.chere.domain.Persona;
 import ar.com.chere.service.PersonaService;
+import java.util.List;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,16 @@ public class ControladorInicio {
     public String inicio(Model model, @AuthenticationPrincipal User user) {
         String mensaje = "Hola mundo con thymeleaf";
 
-        Iterable<Persona> personas = personaService.listarPersonas();
+        List<Persona> personas = personaService.listarPersonas();
         log.info("Ejecutando el controlador Spring MVC");
         log.info("Usuario logueado: " + user);
         model.addAttribute("personas", personas);
+       Double saldoTotal= 0D;
+       for(Persona p: personas){
+           saldoTotal += p.getSaldo();
+       }
+       model.addAttribute("saldoTotal", saldoTotal);
+               model.addAttribute("totalClientes",personas.size() );
         return "index";
     }
 
@@ -62,4 +69,6 @@ public class ControladorInicio {
         return "redirect:/";
 
     }
+    
+    
 }

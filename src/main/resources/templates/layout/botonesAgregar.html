@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <section th:fragment="botonesAgregar">
+            <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agregarCliente">
+                <i class="fas fa-plus"></i> [[#accion.agregar]]
+            </button>
+
+            </div>
+        </section>
+    </body>
+</html>
