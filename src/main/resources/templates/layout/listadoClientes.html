@@ -25,6 +25,7 @@
                                             <th th:text="#{persona.saldo}">Saldo</th>
                                             <th></th><!-- Headers oscuros para la seccion editar y eliminar -->
                                             <th></th><!-- Headers oscuros para la seccion editar y eliminar -->
+                                            <th></th><!-- Headers oscuros para la seccion editar y eliminar -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -32,15 +33,19 @@
                                             <th scope="row">[[${contador.count}]]</th>
                                             <td>[[${persona.nombre} + ' ' + ${persona.apellido}]]</td>
                                             <td>[[${new java.text.DecimalFormat('$#,##0.00').format(persona.saldo)}]]</td>
-                                            <td>
+                                            <td class="col-2">
+                                                <a th:href="@{/info/} + ${persona.idPersona}"
+                                                    class="btn btn-info btn-sm"><i class="fas fa-angle-double-right"></i> [[#{persona.info}]]
+                                            </td>
+                                            <td class="col-2">
                                                 <a  sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editar/} + ${persona.idPersona}"
-                                                    class="btn btn-secondary">
+                                                    class="btn btn-secondary btn-sm">
                                                     <i class="fas fa-angle-double-right"></i> [[#{accion.editar}]]
                                                 </a>
                                             </td>
-                                            <td>
+                                            <td class="col-2">
                                                 <a  sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/eliminar(idPersona=${persona.idPersona})}"
-                                                    class="btn btn-dark">
+                                                    class="btn btn-dark btn-sm">
                                                     <i class="fas fa-angle-double-right"></i> [[#{accion.eliminar}]]
                                                 </a>
                                             </td>

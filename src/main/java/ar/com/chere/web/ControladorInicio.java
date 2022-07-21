@@ -60,7 +60,16 @@ public class ControladorInicio {
         model.addAttribute("persona", persona);
         return "modificar";
     }
+    
+       
+    @GetMapping("/info/{idPersona}")
+    public String info(Persona persona, Model model) {
 
+        persona = personaService.encontrarPersona(persona);
+        model.addAttribute("persona", persona);
+        return "info";
+    } 
+    
     @GetMapping("/eliminar")
     public String eliminar(Persona persona, Model model) {
 

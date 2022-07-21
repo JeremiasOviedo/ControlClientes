@@ -31,6 +31,9 @@ public class Persona implements Serializable {
 
     @NotEmpty
     private String telefono;
+    
+    @NotEmpty   
+    private String dni;
 
     @NotNull
     private Double saldo;

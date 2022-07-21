@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
@@ -8,7 +7,7 @@
     <title>Editar Cliente</title>
 </head>
 <body>
-    <section th:fragment="editarCliente">
+    <section th:fragment="infoCliente">
         <form th:action="@{/guardar}" th:object="${persona}"
               method="POST" class="was-validated">
          
@@ -18,38 +17,38 @@
                         <div class="col">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>[[#{accion.editar}]]</h4>
+                                    <h4>[[#{persona.info}]]</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="nombre">[[#{persona.nombre}]]</label>
                                         <input type="text" class="form-control" name="nombre" 
-                                               required="true" th:field="*{nombre}"/>
+                                               required="true" th:field="*{nombre}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="apellido">[[#{persona.apellido}]]</label>
                                         <input type="text" class="form-control" name="apellido" 
-                                               required="true" th:field="*{apellido}"/>
+                                               required="true" th:field="*{apellido}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="email">[[#{persona.email}]]</label>
                                         <input type="email" class="form-control" name="email" 
-                                               required="true" th:field="*{email}"/>
+                                               required="true" th:field="*{email}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="telefono">[[#{persona.telefono}]]</label>
                                         <input type="tel" class="form-control" name="telefono" 
-                                               required="true" th:field="*{telefono}"/>
+                                               required="true" th:field="*{telefono}" readonly>
                                     </div>
                                        <div class="form-group">
                                         <label for="dni">[[#{persona.dni}]]</label>
                                         <input type="number" class="form-control" name="dni" 
-                                               required="true" th:field="*{dni}"/>
+                                               required="true" th:field="*{dni}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="saldo">[[#{persona.saldo}]]</label>
                                         <input type="number" class="form-control" name="saldo" 
-                                               required="true" th:field="*{saldo}" step="any"/>
+                                               required="true" th:field="*{saldo}" step="any" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -57,9 +56,17 @@
                     </div>
                 </div>
             </div>
-               <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
-            <section th:replace="layout/botonesEditar :: botonesEditar"></section>
+             
         </form>
+          <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a th:href="@{/}" class="btn btn-light btn-block">
+                                <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                            </a>
+                        </div>
+                    </div>
+          </div>
     </section>
 </body>
 </html>
