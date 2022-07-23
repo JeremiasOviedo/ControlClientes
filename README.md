@@ -10,5 +10,11 @@ Patron MVC
 Spring Security implementado
 </br>
 Bootstrap para el Front End
-
+</br>
 <a href="https://jeremiasoviedo1.herokuapp.com/" target="_blank"> Prueba esta app </a>
+</br>
+Usuario: admin
+</br>
+Contraseña: 123
+
+
