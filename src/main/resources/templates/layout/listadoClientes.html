@@ -17,6 +17,7 @@
 
 
                             <div th:if="${personas != null and !personas.empty}">
+                              <div class="table-responsive">
                                 <table class="table table-striped">
                                     <thead class="table-dark">
                                         <tr>
@@ -53,6 +54,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            </div>
                             <div class="text-center p-2" th:if="${personas == null or personas.empty}">
                                 <span th:text="#{persona.lista-vacia}">Lista vacia</span>
 
@@ -63,7 +65,6 @@
 
                     </div>
                 </div>
-            </div>
         </section>
     </body>
 </html>
