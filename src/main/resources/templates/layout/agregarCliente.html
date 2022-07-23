@@ -6,9 +6,9 @@
     </head>
     <body>
         <section th:fragment="agregarCliente">
-            <div class="col-md-6 text-center" sec:authorize="hasRole('ROLE_ADMIN')">
-                <button type="button" class="btn btn-primary col-2" data-toggle="modal" data-target="#agregarCliente" th:text="#{accion.agregar}">
-                    Agregar Cliente
+            <div class="col-md-12 text-center" sec:authorize="hasRole('ROLE_ADMIN')">
+                <button type="button" class="btn btn-success col-md-3" data-toggle="modal" data-target="#agregarCliente" >
+                    <i class="fa thin fa-plus"></i>&nbsp;&nbsp;[[#{accion.agregar}]]
                 </button>
             </div>
 
@@ -16,10 +16,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="agregarCliente" th:text="#{persona.agregar}">Agregar persona</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                            <div class="display-5 modal-title text-center" id="agregarCliente" th:text="#{persona.agregar}">Agregar persona</div>
                         </div>
                         <form th:action ="@{/guardar}" th:object="${persona}"
                               method="POST" class="was-validated">
@@ -54,7 +51,7 @@
                        
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary" th:text="#{accion.guardar}">Guardar cambios</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" th:text="#{accion.regresar}">Cerrar ventana</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" th:text="#{accion.regresar}">Cerrar ventana</button>
                         </div>
                         </form>
                     </div>
