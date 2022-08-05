@@ -3,9 +3,9 @@
  </br>
 Base de datos MySQL 
 </br>
-JPA Hibernate
+Hibernate
 </br>
-Patron MVC
+Patron de diseño MVC
 </br>
 Spring Security implementado
 </br>
